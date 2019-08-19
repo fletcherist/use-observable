@@ -4,7 +4,7 @@ import { deepObserve } from 'mobx-utils'
 
 export function useObservable<T>(value: T): T {
   if (!isObservable(value)) {
-    throw new Error(`Expected observable, but got: ${typeof value}`)
+    throw new TypeError(`Expected observable, but got: ${typeof value}`)
   }
   const [flag, forceUpdate] = useState(false)
   useEffect(() => {

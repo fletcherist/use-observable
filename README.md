@@ -10,6 +10,9 @@ i don't understand why `mobx-react-lite` has such feature as `useObserver`.
 in my mind `useObserver` seems to be useless thing. all react bindings for mobx should be replaced with the following function:
 ```ts
 function useObservable<T>(value: T): T {
+  if (!isObservable(value)) {
+    throw new TypeError(`Expected observable, but got: ${typeof value}`)
+  }
   const [flag, forceUpdate] = useState(false)
   useEffect(() => {
     const dispose = deepObserve(value, () => forceUpdate(!flag))
