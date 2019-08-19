@@ -24,10 +24,11 @@ function useObservable<T>(value: T): T {
 3. works both inside/outside of react code
 
 # Install
-[go here and copy source file (12 lines) to your project](https://github.com/fletcherist/use-observable/blob/master/useObservable.ts) because package managers sucks
+[go here and copy source file (12 lines) to your project](https://github.com/fletcherist/use-observable/blob/master/useObservable.ts) (because package managers sucks)
 
 # Usage
 ```ts
+import { observable } from 'mobx'
 import { useObservable } from './useObservable'
 const myState = observable({
   count: 1,
@@ -40,8 +41,8 @@ const myState = observable({
   }
 });
 setTimeout(() => {
-  // this will update component
-  // while being subscribed to it using `useObservable`
+  // this will update your component
+  // because its subscribed to myState by using `useObservable`
   myState.count += 42
 }, 1000)
 const App: React.FC = () => {
