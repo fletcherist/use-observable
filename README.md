@@ -1,9 +1,11 @@
 # use-observable
 
-Simple alternative to [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite)
+Simpler alternative to [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite)
 
 ### motivation
 the problem of state management still exists. while using mobx i was working with overrated package `mobx-react-lite`
+
+
 i don't understand why `mobx-react-lite` has such feature as `useObserver`.
 in my mind `useObserver` seems to be useless thing. all react bindings for mobx should be replaced with the following function:
 ```ts
@@ -22,7 +24,7 @@ function useObservable<T>(value: T): T {
 3. works both inside/outside of react code
 
 # Install
-copy sources and put it into your utils (or maybe place where you work with app store)
+[go here and copy sources to your project](https://github.com/fletcherist/use-observable/blob/master/useObservable.ts) because package managers sucks
 
 # Usage
 ```ts
