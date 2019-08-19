@@ -24,7 +24,7 @@ function useObservable<T>(value: T): T {
 3. works both inside/outside of react code
 
 # Install
-[go here and copy sources to your project](https://github.com/fletcherist/use-observable/blob/master/useObservable.ts) because package managers sucks
+[go here and copy source file (12 lines) to your project](https://github.com/fletcherist/use-observable/blob/master/useObservable.ts) because package managers sucks
 
 # Usage
 ```ts
