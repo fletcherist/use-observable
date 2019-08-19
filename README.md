@@ -29,7 +29,7 @@ function useObservable<T>(value: T): T {
 # Usage
 ```ts
 import { useObservable } from './useObservable'
-const counter = observable({
+const myState = observable({
   count: 1,
   foo: { bar: { baz: 123 } },
   increment() {
@@ -39,14 +39,19 @@ const counter = observable({
     this.foo.bar.baz -= 1
   }
 });
+setTimeout(() => {
+  // this will update component
+  // while being subscribed to it using `useObservable`
+  myState.count += 42
+}, 1000)
 const App: React.FC = () => {
-  const state = useObservable(counter)
+  const state = useObservable(myState)
   return (
     <div>
         <p>count: {state.count}</p>
         <p>baz: {state.foo.bar.baz}</p>
         <button onClick={() => state.increment() }>increment counter</button>
-        <button onClick={() => counter.decrementBaz += 1}>decrement baz</button>
+        <button onClick={() => myState.decrementBaz() }>decrement baz</button>
     </div>
   );
 }
